@@ -38,7 +38,9 @@ async def lifespan(app: FastAPI):
 
     db = mongo_database()
     await db.songs.drop_indexes()
-    await db.songs.create_index({"release_year": -1})
+    await db.songs.create_index(
+        {"album.release_year": -1}
+    )
     await db.songs.create_index({"artist": "text"})
 
     FastAPICache.init(
@@ -85,9 +87,9 @@ async def get_song(
 ):
     song = await db.songs.find_one(
         {
-            "_id": ObjectId(
-                song_id
-            )  # TODO add validation for song_id
+            "_id": ObjectId(song_id)
+            if ObjectId.is_valid(song_id)
+            else None
         }
     )
     if not song:
@@ -113,7 +115,11 @@ async def update_song(
     db=Depends(mongo_database),
 ):
     result = await db.songs.update_one(
-        {"_id": ObjectId(song_id)},
+        {
+            "_id": ObjectId(song_id)
+            if ObjectId.is_valid(song_id)
+            else None
+        },
         {"$set": updated_song},
     )
     if result.modified_count == 1:
@@ -130,7 +136,11 @@ async def delete_song(
     db=Depends(mongo_database),
 ):
     result = await db.songs.delete_one(
-        {"_id": ObjectId(song_id)}
+        {
+            "_id": ObjectId(song_id)
+            if ObjectId.is_valid(song_id)
+            else None
+        }
     )
     if result.deleted_count == 1:
         return {"message": "Song deleted successfully"}
@@ -170,7 +180,11 @@ async def get_playlist(
     db=Depends(mongo_database),
 ):
     playlist = await db.playlists.find_one(
-        {"_id": ObjectId(playlist_id)}
+        {
+            "_id": ObjectId(playlist_id)
+            if ObjectId.is_valid(playlist_id)
+            else None
+        }
     )
     if not playlist:
         raise HTTPException(
@@ -196,7 +210,7 @@ async def get_songs_by_released_year(
     year: int,
     db=Depends(mongo_database),
 ):
-    query = db.songs.find({"release_year": year})
+    query = db.songs.find({"album.release_year": year})
     explained_query = await query.explain()
     logger.info(
         "Index used: %s",
@@ -210,7 +224,7 @@ async def get_songs_by_released_year(
     return songs
 
 
-@app.get("/songs_by_artist")
+@app.get("/songs/artist")
 async def get_songs_by_artist(
     artist: str, db=Depends(mongo_database)
 ):
