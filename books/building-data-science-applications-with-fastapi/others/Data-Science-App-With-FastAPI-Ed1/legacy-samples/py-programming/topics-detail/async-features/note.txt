@@ -1,0 +1,9 @@
+synchronous ~ one step at a time 
+    conditional branching, loops and function calls
+        Batch
+        cmd
+
+asynchronous ~ takes one execution step at a time + not wait for an execution 
+    step to be completed before moving on to the next one.
+
+blocking vs non-blocking

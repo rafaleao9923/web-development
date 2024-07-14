@@ -1,0 +1,12 @@
+1. file upload
+2. endpoint
+3. form
+4. path params
+5. query params
+5. custom response
+6. response params
+7. response path params
+8. headers cookies
+9. raise errors
+10. request body
+11. request object

@@ -1,0 +1,7 @@
+1. custom validation
+2. field validation
+3. model inheritance
+4. optional field default value
+5. pydantic types
+6. std field types
+7. pydantic objects

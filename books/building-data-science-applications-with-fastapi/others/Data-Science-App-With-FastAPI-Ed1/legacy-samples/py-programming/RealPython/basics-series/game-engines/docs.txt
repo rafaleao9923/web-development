@@ -1,0 +1,13 @@
+- well-versed in OOP
+- few stand-alone engines support
+- not resemble Python, C++, C#, and JavaScript are popular
+- difficult porting
+- scripting language
+- venv
+- computer graphics, sound, and input hardware
+- game loop, frame
+- vital actions
+    + Processing user input
+    + Updating the state of game objects
+    + Updating the display and audio output
+    + Maintaining the speed of the game

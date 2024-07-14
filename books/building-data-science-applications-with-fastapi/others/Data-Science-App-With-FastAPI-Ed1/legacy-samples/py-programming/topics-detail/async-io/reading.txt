@@ -1,0 +1,74 @@
+1. Async IO ~ Asynchronous IO
+2. A concurrent programming "design" from Python 3.4
+3. Concurrency, parallelism, threading, multiprocessing
+
+    Concurrency: multiple computations are happening at the "same time"
+            https://vi.wikipedia.org/wiki/T%C6%B0%C6%A1ng_tranh_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)
+    
+    parallelism:  a technique for making programs run faster by performing several 
+        computations "at once"
+            https://vi.wikipedia.org/wiki/T%C3%ADnh_to%C3%A1n_song_song
+
+    threading: a small set of instructions designed to be "scheduled" 
+        and executed by the CPU independently of the parent process
+            https://vi.wikipedia.org/wiki/Lu%E1%BB%93ng_(%C4%91i%E1%BB%87n_to%C3%A1n)
+
+    Multiprocessing – A computer using more than one CPU at a time
+
+4. async/await
+5. asyncio libs and "Coroutines" (specialized generator functions):
+    computer program components ~ generalize subroutines -> multitasking
+        allowing execution to be suspended and resumed to implement:
+            cooperative tasks, "exceptions", event "loops", "iterators", infinite lists and "pipes"
+6. brother of multiprocessing and threading. 
+7. bounds: CPU (computer’s cores continually working hard), IO (a lot of waiting IO), 
+8. "multiple operations at the same time", "spreading tasks over a processing units"
+    "multiple tasks run in an overlapping manner", "concurrent execution model"
+
+9. GIL
+10. concurrency = {multiprocessing + threading}
+11. Multiprocessing is a form of parallelism
+12. parallelism being a specific subset of concurrency
+13. "multiprocessing", "threading", and "concurrent.futures" packages
+
+14. asyncio is "a new member":
+    a library to write "concurrent" code using the async/await 
+    not threading
+    not multiprocessing
+    top of multiprocessing and threading
+
+15. asyncio: single-threaded, single-process design
+    "feeling" of concurrency, using a single thread in a single process
+    Coroutines: "SCHEDULED" concurrently, not concurrent
+    "a style of concurrent programming"
+
+    pause, wait, let other run
+    "Chess master exhibition"
+
+16. get rid of hard and error-prone from threaded design.
+17. callbacks, events, transports, protocols, and futures
+
+18. async, await, gather, run, yield/ return 
+19. Chaining coroutines (~ pipes: wait result of another taks/ functions)
+20. asyncio Queue
+
+21. ?thread-safety
+
+22. awaitable coroutine object, generators 
+23. @asyncio.coroutine wrapper
+24. await "marking a break point": coroutine suspends itself, other coroutines work
+    "Still work, not exit, not finish, JUST WAIT OTHER"
+
+25. generators, coroutine and await relate "blocking vs non-blocking"
+
+26. asynchronous iterator, asynchronous generator, asynchronous comprehension
+    yield + await, async in a list comprehension
+27. "iteration concurrent"
+
+28. async for and async with
+
+29. Event Loop ~ like a while True loop: monitors coroutines + taking feedback
+    meantime and what’s idle, wake up an idle coroutine, 
+    "asyncio.run": get, run until complete, then closing event loop. (wrapping event loop)
+        need to run awaitable coroutine object
+        Other coroutines + await + wrapping by async.run

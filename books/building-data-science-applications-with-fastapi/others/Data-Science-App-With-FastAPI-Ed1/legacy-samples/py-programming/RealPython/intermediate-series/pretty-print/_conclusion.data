@@ -1,0 +1,4 @@
+- work with pprint() and PrettyPrinter
+- whenever you’re developing something that deals with complex data structures
+    + data warehouse full of deeply-nested JSON files
+    + application that uses an unfamiliar API

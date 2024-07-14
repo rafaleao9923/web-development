@@ -1,0 +1,14 @@
+1. class dependency
+2. function dependency
+3. global dependency
+4. path dependency
+5. router dependency
+
+Rememmber:
+    - dependency chains
+    - create objects at runtime
+
+    - "don't know how it handled the required objects for
+        this operation: we just ask for the value we need"
+
+    - 
