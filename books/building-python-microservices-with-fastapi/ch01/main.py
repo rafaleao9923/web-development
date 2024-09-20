@@ -21,10 +21,11 @@ discussion_posts = dict()
 request_headers = dict()
 cookies = dict()
 
-   
+
 class User(BaseModel):
     username: str
     password: str
+
 
 class ValidUser(BaseModel):
     id: UUID
@@ -32,12 +33,14 @@ class ValidUser(BaseModel):
     password: str
     passphrase: str
 
+
 class UserType(str, Enum):
     admin = "admin"
     teacher = "teacher"
     alumni = "alumni"
     student = "student"
-    
+
+
 class UserProfile(BaseModel):
     firstname: str
     lastname: str
@@ -46,18 +49,21 @@ class UserProfile(BaseModel):
     salary: Optional[int] = 0
     birthday: date
     user_type: UserType
-  
+
+
 class PostType(str, Enum):
-    information = "information" 
+    information = "information"
     inquiry = "inquiry"
     quote = "quote"
     twit = "twit"
-    
+
+
 class Post(BaseModel):
     topic: Optional[str] = None
     message: str
     date_posted: datetime
-    
+
+
 class ForumPost(BaseModel):
     id: UUID
     topic: Optional[str] = None
@@ -66,6 +72,7 @@ class ForumPost(BaseModel):
     date_posted: datetime
     username: str
 
+
 class ForumDiscussion(BaseModel):
     id: UUID
     main_post: ForumPost
@@ -73,14 +80,17 @@ class ForumDiscussion(BaseModel):
     author: UserProfile
 
 # first sample API
+
+
 @app.get("/ch01/index")
 def index():
     return {"message": "Welcome FastAPI Nerds"}
-    
+
+
 @app.post("/ch01/login/signup")
 def signup(uname: str, passwd: str):
-    if ( uname == None and passwd == None):
-        return {"message" : "invalid user"}
+    if (uname == None and passwd == None):
+        return {"message": "invalid user"}
     elif not valid_users.get(uname) == None:
         return {"message": "user exists"}
     else:
@@ -88,9 +98,11 @@ def signup(uname: str, passwd: str):
         pending_users[uname] = user
         return user
 
+
 @app.post("/ch01/list/users/pending")
 def list_pending_users():
     return pending_users
+
 
 @app.delete("/ch01/delete/users/pending")
 def delete_pending_users(accounts: List[str] = []):
@@ -101,20 +113,23 @@ def delete_pending_users(accounts: List[str] = []):
 
 @app.post("/ch01/login/validate", response_model=ValidUser)
 def approve_user(user: User):
-    
+
     if not valid_users.get(user.username) == None:
-        return ValidUser(id=None, username = None, password = None, passphrase = None)
+        return ValidUser(id=None, username=None, password=None, passphrase=None)
     else:
-        valid_user = ValidUser(id=uuid1(), username= user.username, password  = user.password, passphrase = hashpw(user.password.encode(),gensalt()))
+        valid_user = ValidUser(id=uuid1(), username=user.username, password=user.password,
+                               passphrase=hashpw(user.password.encode(), gensalt()))
         valid_users[user.username] = valid_user
         del pending_users[user.username]
         return valid_user
-    
+
+
 @app.delete("/ch01/login/remove/all")
 def delete_users(usernames: List[str]):
     for user in usernames:
         del valid_users[user]
     return {"message": "deleted users"}
+
 
 @app.delete("/ch01/login/remove/{username}")
 def delete_user(username: str):
@@ -129,6 +144,7 @@ def delete_user(username: str):
 def list_valid_users():
     return valid_users
 
+
 @app.get("/ch01/login/")
 def login(username: str, password: str):
     if valid_users.get(username) == None:
@@ -141,11 +157,15 @@ def login(username: str, password: str):
             return {"message": "invalid user"}
 
 # should be above /ch01/login/{username}/{password}
+
+
 @app.get("/ch01/login/details/info")
 def login_info():
     return {"message": "username and password are needed"}
 
 # should be above /ch01/login/{username}/{password}
+
+
 @app.get("/ch01/login/password/change")
 def change_password(username: str, old_passw: str = '', new_passw: str = ''):
     passwd_len = 8
@@ -153,21 +173,24 @@ def change_password(username: str, old_passw: str = '', new_passw: str = ''):
         return {"message": "user does not exist"}
     elif old_passw == '' or new_passw == '':
         characters = ascii_lowercase
-        temporary_passwd = ''.join(random.choice(characters) for i in range(passwd_len))
+        temporary_passwd = ''.join(random.choice(characters)
+                                   for i in range(passwd_len))
         user = valid_users.get(username)
         user.password = temporary_passwd
-        user.passphrase = hashpw(temporary_passwd.encode(),gensalt())
+        user.passphrase = hashpw(temporary_passwd.encode(), gensalt())
         return user
     else:
         user = valid_users.get(username)
         if user.password == old_passw:
             user.password = new_passw
-            user.passphrase = hashpw(new_passw.encode(),gensalt())
+            user.passphrase = hashpw(new_passw.encode(), gensalt())
             return user
         else:
             return {"message": "invalid user"}
 
 # should be above /ch01/login/{username}/{password}
+
+
 @app.post("/ch01/login/username/unlock")
 def unlock_username(id: Optional[UUID] = None):
     if id == None:
@@ -179,8 +202,10 @@ def unlock_username(id: Optional[UUID] = None):
         return {"message": "user does not exist"}
 
 # should be above /ch01/login/{username}/{password}
+
+
 @app.post("/ch01/login/password/unlock")
-def unlock_password(username: Optional[str] = None, id: Optional[UUID] = None ):
+def unlock_password(username: Optional[str] = None, id: Optional[UUID] = None):
     if username == None:
         return {"message": "username is required"}
     elif valid_users.get(username) == None:
@@ -194,9 +219,10 @@ def unlock_password(username: Optional[str] = None, id: Optional[UUID] = None ):
                 return {"password": user.password}
             else:
                 return {"message": "invalid token"}
-            
+
+
 @app.get("/ch01/login/{username}/{password}")
-def login_with_token(username: str, password:str, id: UUID):
+def login_with_token(username: str, password: str, id: UUID):
     if valid_users.get(username) == None:
         return {"message": "user does not exist"}
     else:
@@ -207,11 +233,9 @@ def login_with_token(username: str, password:str, id: UUID):
             return {"message": "invalid user"}
 
 
-
-        
 @app.post("/ch01/account/profile/add", response_model=UserProfile)
-def add_profile(uname: str, 
-                fname: str = Form(...), 
+def add_profile(uname: str,
+                fname: str = Form(...),
                 lname: str = Form(...),
                 mid_init: str = Form(...),
                 user_age: int = Form(...),
@@ -221,9 +245,11 @@ def add_profile(uname: str,
     if valid_users.get(uname) == None:
         return UserProfile(firstname=None, lastname=None, middle_initial=None, age=None, birthday=None, salary=None, user_type=None)
     else:
-        profile = UserProfile(firstname=fname, lastname=lname, middle_initial=mid_init, age=user_age, birthday=datetime.strptime(bday, '%m/%d/%Y'), salary=sal, user_type=utype)
+        profile = UserProfile(firstname=fname, lastname=lname, middle_initial=mid_init, age=user_age,
+                              birthday=datetime.strptime(bday, '%m/%d/%Y'), salary=sal, user_type=utype)
         valid_profiles[uname] = profile
         return profile
+
 
 @app.put("/ch01/account/profile/update/{username}")
 def update_profile(username: str, id: UUID, new_profile: UserProfile):
@@ -237,8 +263,9 @@ def update_profile(username: str, id: UUID, new_profile: UserProfile):
         else:
             return {"message": "user does not exist"}
 
+
 @app.patch("/ch01/account/profile/update/names/{username}")
-def update_profile_names(id: UUID, username: str = '' , new_names: Optional[Dict[str, str]] = None):
+def update_profile_names(id: UUID, username: str = '', new_names: Optional[Dict[str, str]] = None):
     if valid_users.get(username) == None:
         return {"message": "user does not exist"}
     elif new_names == None:
@@ -255,10 +282,11 @@ def update_profile_names(id: UUID, username: str = '' , new_names: Optional[Dict
         else:
             return {"message": "user does not exist"}
 
+
 @app.get("/ch01/account/profile/view/{username}")
 def access_profile(username: str, id: UUID):
     if valid_users.get(username) == None:
-            return {"message": "user does not exist"}
+        return {"message": "user does not exist"}
     else:
         user = valid_users.get(username)
         if user.id == id:
@@ -266,19 +294,22 @@ def access_profile(username: str, id: UUID):
         else:
             return {"message": "user does not exist"}
 
-        
+
 @app.post("/ch01/discussion/posts/add/{username}")
 def post_discussion(username: str, post: Post, post_type: PostType):
     if valid_users.get(username) == None:
         return {"message": "user does not exist"}
     elif not (discussion_posts.get(id) == None):
-            return {"message": "post already exists"}
+        return {"message": "post already exists"}
     else:
-        forum_post = ForumPost(id=uuid1(), topic=post.topic, message=post.message, post_type=post_type, date_posted=post.date_posted, username=username)
+        forum_post = ForumPost(id=uuid1(), topic=post.topic, message=post.message,
+                               post_type=post_type, date_posted=post.date_posted, username=username)
         user = valid_profiles[username]
-        forum = ForumDiscussion(id=uuid1(), main_post=forum_post, author=user, replies=list())
+        forum = ForumDiscussion(
+            id=uuid1(), main_post=forum_post, author=user, replies=list())
         discussion_posts[forum.id] = forum
         return forum
+
 
 @app.post("/ch01/discussion/posts/reply/{username}")
 def post_reply(username: str, id: UUID, post_type: PostType, post_reply: Post):
@@ -287,10 +318,12 @@ def post_reply(username: str, id: UUID, post_type: PostType, post_reply: Post):
     elif discussion_posts.get(id) == None:
         return {"message": "post does not exist"}
     else:
-        reply = ForumPost(id=uuid1(), topic=post_reply.topic, message=post_reply.message, post_type=post_type, date_posted=post_reply.date_posted, username=username)
+        reply = ForumPost(id=uuid1(), topic=post_reply.topic, message=post_reply.message,
+                          post_type=post_type, date_posted=post_reply.date_posted, username=username)
         main_post = discussion_posts[id]
         main_post.replies.append(reply)
         return reply
+
 
 @app.put("/ch01/discussion/posts/update/{username}")
 def update_discussion(username: str, id: UUID, post_type: PostType, post: Post):
@@ -299,10 +332,12 @@ def update_discussion(username: str, id: UUID, post_type: PostType, post: Post):
     elif discussion_posts.get(id) == None:
         return {"message": "post does not exist"}
     else:
-        forum_post = ForumPost(id=uuid1(), topic=post.topic, message=post.message, post_type=post_type, date_posted=post.date_posted, username=username)
-        forum = discussion_posts[id] 
+        forum_post = ForumPost(id=uuid1(), topic=post.topic, message=post.message,
+                               post_type=post_type, date_posted=post.date_posted, username=username)
+        forum = discussion_posts[id]
         forum.main_post = forum_post
         return {"message": "main post update"}
+
 
 @app.delete("/ch01/discussion/posts/remove/{username}")
 def delete_discussion(username: str, id: UUID):
@@ -311,9 +346,10 @@ def delete_discussion(username: str, id: UUID):
     elif discussion_posts.get(id) == None:
         return {"message": "post does not exist"}
     else:
-        del discussion_posts[id] 
+        del discussion_posts[id]
         return {"message": "main post deleted"}
-    
+
+
 @app.get("/ch01/discussion/posts/view/{username}")
 def view_discussion(username: str, id: UUID):
     if valid_users.get(username) == None:
@@ -323,9 +359,10 @@ def view_discussion(username: str, id: UUID):
     else:
         forum = discussion_posts[id]
         return forum
-    
+
+
 @app.get("/ch01/headers/verify")
-def verify_headers(host: Optional[str] = Header(None), 
+def verify_headers(host: Optional[str] = Header(None),
                    accept: Optional[str] = Header(None),
                    accept_language: Optional[str] = Header(None),
                    accept_encoding: Optional[str] = Header(None),
@@ -336,7 +373,7 @@ def verify_headers(host: Optional[str] = Header(None),
     request_headers["Accept-Encoding"] = accept_encoding
     request_headers["User-Agent"] = user_agent
     return request_headers
-    
+
 
 @app.get("/ch01/login/cookies")
 def access_cookie(userkey: Optional[str] = Cookie(None), identity: Optional[str] = Cookie(None)):
@@ -344,10 +381,9 @@ def access_cookie(userkey: Optional[str] = Cookie(None), identity: Optional[str]
     cookies["identity"] = identity
     return cookies
 
+
 @app.post("/ch01/login/rememberme/create/")
 def create_cookies(resp: Response, id: UUID, username: str = ''):
     resp.set_cookie(key="userkey", value=username)
     resp.set_cookie(key="identity", value=str(id))
     return {"message": "remember-me tokens created"}
-
-    
