@@ -9,8 +9,11 @@ How to build a website end-to-end?
   - [Repositories](#repositories)
   - [Libraries](#libraries)
   - [From ChatGPT](#from-chatgpt)
+  - [Courses](#courses)
 
 ## Repositories
+
+- [full-stack-web-development](https://github.com/topics/full-stack-web-development?l=python)
 
 ## Libraries
 
@@ -43,3 +46,7 @@ https://github.com/MechanicalSoup/MechanicalSoup
 8. **Goodreads Clone**: A fullstack clone of the popular Goodreads website, built with Django. It's ideal for learning how to handle user-generated content【9†source】.
 9. **Chess Forum**: Built using Django Channels for real-time interactions, this project is great for those interested in real-time features like messaging and forums【10†source】.
 10. **Fullstack Boilerplate with DRF & Vue**: A boilerplate combining Django Rest Framework (DRF) and Vue.js for building modern fullstack applications【9†source】.
+
+## Courses
+
+- [cs50-s-web-programming](https://www.edx.org/learn/web-development/harvard-university-cs50-s-web-programming-with-python-and-javascript)
