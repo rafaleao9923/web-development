@@ -17,22 +17,22 @@ How to build a website end-to-end?
 
 ## Libraries
 
-https://github.com/ycd/manage-fastapi
-https://github.com/rwf2/Rocket
-https://github.com/httpie/http-prompt
-https://github.com/donnemartin/system-design-primer
-https://github.com/reflex-dev/reflex
-https://github.com/flet-dev/flet
-https://github.com/sanic-org/sanic
-https://github.com/sparckles/Robyn
-https://github.com/MasoniteFramework/masonite
-https://github.com/TurboGears/tg2
-
-https://github.com/django-cms/django-cms
-https://github.com/dpgaspar/Flask-AppBuilder
-https://github.com/gouthambs/Flask-Blogging
-
-https://github.com/MechanicalSoup/MechanicalSoup
+[manage-fastapi](https://github.com/ycd/manage-fastapi)  
+[Rocket](https://github.com/rwf2/Rocket)  
+[http-prompt](https://github.com/httpie/http-prompt)  
+[system-design-primer](https://github.com/donnemartin/system-design-primer)  
+[reflex](https://github.com/reflex-dev/reflex)  
+[flet](https://github.com/flet-dev/flet)  
+[sanic](https://github.com/sanic-org/sanic)  
+[Robyn](https://github.com/sparckles/Robyn)  
+[masonite](https://github.com/MasoniteFramework/masonite)  
+[TG2](https://github.com/TurboGears/tg2)  
+[django-cms](https://github.com/django-cms/django-cms)  
+[Flask-AppBuilder](https://github.com/dpgaspar/Flask-AppBuilder)  
+[Flask-Blogging](https://github.com/gouthambs/Flask-Blogging)  
+[MechanicalSoup](https://github.com/MechanicalSoup/MechanicalSoup)  
+[google-ctf](https://github.com/google/google-ctf)
+[pybadges](https://github.com/google/pybadges)
 
 ## From ChatGPT
 
