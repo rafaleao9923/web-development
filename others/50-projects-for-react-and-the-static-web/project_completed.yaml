@@ -1,0 +1,15 @@
+- author_name: dolearning
+  author_url: https://github.com/doingandlearning/flash-cards
+  topic: Productivity
+  name: Flash Cards
+  project_url: https://github.com/doingandlearning/flash-cards
+- author_name: codeSTACKr
+  author_url: https://github.com/codeSTACKr/
+  topic: Personal & Portfolio
+  name: Goal Manager
+  project_url: https://github.com/codeSTACKr/goal-manager-react
+- author_name: mohamedmehdigara
+  author_url: https://github.com/mohamedmehdigara
+  topic: Reddit clone
+  name: subreddit-feed-app-in-react
+  project_url: https://github.com/mohamedmehdigara/subreddit-feed-app-in-react

@@ -1,0 +1,117 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "colbyfayock",
+      "name": "Colby Fayock",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1045274?v=4",
+      "profile": "https://colbyfayock.com/newsletter",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "codeSTACKr",
+      "name": "Jesse Hall",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/52665907?v=4",
+      "profile": "https://www.youtube.com/codeSTACKr/",
+      "contributions": [
+        "doc",
+        "video"
+      ]
+    },
+    {
+      "login": "UnevenCoder",
+      "name": "Ameen",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/49345531?v=4",
+      "profile": "https://m.youtube.com/channel/UCKmIFs7rFKdTE6t1y8bKAHQ/videos",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "myogeshchavan97",
+      "name": "Yogesh Chavan",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2779129?v=4",
+      "profile": "https://medium.com/@yogeshchavan",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "lelouchB",
+      "name": "ASHUTOSH KUMAR SINGH",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/45850882?v=4",
+      "profile": "https://ashusingh.me/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "doingandlearning",
+      "name": "Kevin Cunningham",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/8320213?v=4",
+      "profile": "http://www.kevincunningham.co.uk",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "GK-Hynes",
+      "name": "Gerard Hynes",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/28233682?v=4",
+      "profile": "https://github.com/GK-Hynes",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "shashiirk",
+      "name": "Shashikanth Reddy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48406108?v=4",
+      "profile": "https://github.com/shashiirk",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "andreaskeller",
+      "name": "Andreas Keller",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5086590?v=4",
+      "profile": "https://github.com/andreaskeller",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "ambujsahu81",
+      "name": "Ambuj sahu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/118078892?v=4",
+      "profile": "https://github.com/ambujsahu81",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "mohamedmehdigara",
+      "name": "Mohamed Mehdi Gara",
+      "avatar_url": "https://avatars.githubusercontent.com/u/47916299?v=4",
+      "profile": "https://stackoverflow.com/users/11660398/mohamed-mehdi-gara",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "50-projects-for-react-and-the-static-web",
+  "projectOwner": "colbyfayock",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true,
+  "commitConvention": "angular"
+}

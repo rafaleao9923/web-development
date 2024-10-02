@@ -14,6 +14,7 @@ How to build a website end-to-end?
 ## Repositories
 
 - [full-stack-web-development](https://github.com/topics/full-stack-web-development?l=python)
+- [50-projects](https://github.com/colbyfayock/50-projects-for-react-and-the-static-web)
 
 ## Libraries
 
@@ -33,6 +34,9 @@ How to build a website end-to-end?
 [MechanicalSoup](https://github.com/MechanicalSoup/MechanicalSoup)  
 [google-ctf](https://github.com/google/google-ctf)
 [pybadges](https://github.com/google/pybadges)
+[relay](https://github.com/facebook/relay)
+
+[sapling](https://github.com/facebook/sapling)
 
 ## From ChatGPT
 
