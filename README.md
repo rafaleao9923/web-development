@@ -15,6 +15,7 @@ How to build a website end-to-end?
 
 - [full-stack-web-development](https://github.com/topics/full-stack-web-development?l=python)
 - [50-projects](https://github.com/colbyfayock/50-projects-for-react-and-the-static-web)
+- [tailwind-cards](https://github.com/hasinhayder/tailwind-cards)
 
 ## Libraries
 
