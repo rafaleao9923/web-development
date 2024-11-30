@@ -3,13 +3,16 @@
 How to build a website end-to-end?
 
 # Table of Contents
-
 - [web](#web)
 - [Table of Contents](#table-of-contents)
   - [Repositories](#repositories)
   - [Libraries](#libraries)
   - [From ChatGPT](#from-chatgpt)
   - [Courses](#courses)
+  - [References](#references)
+  - [xAI - leao API](#xai---leao-api)
+  - [Prompts](#prompts)
+  - [Other resources](#other-resources)
 
 ## Repositories
 
@@ -55,3 +58,30 @@ How to build a website end-to-end?
 ## Courses
 
 - [cs50-s-web-programming](https://www.edx.org/learn/web-development/harvard-university-cs50-s-web-programming-with-python-and-javascript)
+
+## References
+
+https://github.com/abi/screenshot-to-co
+
+## xAI - leao API
+
+```txt
+xai-JkB8yzox1ahYT99DVsjyZyFEbZsGN37T1oNYSTyMdq6kPPiickFgemWEzTHbArEH5dvSwxgl9aOgDMap
+```
+
+## Prompts
+
+```
+this code is too simple, make it more interesting, create a crypto landing page for example. focus on the code (answer), don't write intro, conclusion, summary, explaination in the answer.
+```
+
+## Other resources
+
+[theodinproject](https://www.theodinproject.com/paths)
+
+[netacad](https://www.netacad.com/dashboard)
+
+[front-end-development](https://www.freecodecamp.org/learn/front-end-development-libraries/)
+
+[fullstackopen](https://fullstackopen.com/en/)
+

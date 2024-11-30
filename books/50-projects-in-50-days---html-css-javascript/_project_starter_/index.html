@@ -1,13 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>My Project</title>
-  </head>
-  <body>
-    <h1>Project Starter</h1>
-    <script src="script.js"></script>
-  </body>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoNova - Revolutionary Blockchain Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #50e3c2;
+            --background-color: #f9f9f9;
+            --text-color: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+        
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        header a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        header nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        header nav ul li {
+            margin-left: 20px;
+        }
+        
+        header nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        #showcase {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #ffffff;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        #showcase h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        #showcase p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ffffff;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            color: #ffffff;
+        }
+        
+        #features {
+            padding: 80px 0;
+        }
+        
+        #features .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        #features .feature {
+            flex-basis: 30%;
+            text-align: center;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        #features .feature:hover {
+            transform: translateY(-10px);
+        }
+        
+        #features .feature i {
+            font-size: 50px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        #features .feature h3 {
+            margin-bottom: 15px;
+        }
+        
+        #about {
+            padding: 80px 0;
+            background: var(--background-color);
+        }
+        
+        #about .container {
+            text-align: center;
+        }
+        
+        #about h2 {
+            margin-bottom: 30px;
+        }
+        
+        #about p {
+            margin-bottom: 20px;
+        }
+        
+        #contact {
+            padding: 80px 0;
+            background: var(--primary-color);
+            color: #ffffff;
+        }
+        
+        #contact .container {
+            text-align: center;
+        }
+        
+        #contact h2 {
+            margin-bottom: 30px;
+        }
+        
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #contact input, #contact textarea {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+        
+        #contact button {
+            background: #ffffff;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        #contact button:hover {
+            background: var(--secondary-color);
+            color: #ffffff;
+        }
+        
+        footer {
+            background: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                CryptoNova
+            </div>
+            <nav class="animated-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <h1>Revolutionary Blockchain Solutions</h1>
+            <p>Experience the future of finance with CryptoNova's cutting-edge technology</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <div class="feature">
+                <i class="fas fa-lock"></i>
+                <h3>Secure Transactions</h3>
+                <p>State-of-the-art encryption for all your transactions</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h3>Lightning Fast</h3>
+                <p>Instant transactions across the globe</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users"></i>
+                <h3>Community Driven</h3>
+                <p>Join our vibrant community of crypto enthusiasts</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>CryptoNova is at the forefront of blockchain technology, providing secure, fast, and community-driven solutions for the future of finance.</p>
+        </div>
+    </section>
+
