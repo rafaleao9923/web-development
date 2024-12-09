@@ -85,3 +85,6 @@ this code is too simple, make it more interesting, create a crypto landing page 
 
 [fullstackopen](https://fullstackopen.com/en/)
 
+https://github.com/talkpython/modern-apis-with-fastapi
+
+https://github.com/fastapi/full-stack-fastapi-template
