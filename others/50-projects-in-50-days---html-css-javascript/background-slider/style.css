@@ -77,3 +77,22 @@ body::before {
 .right-arrow {
   right: calc(15vw - 65px);
 }
+
+.loading-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.loading-text {
+  font-size: 50px;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  filter: contrast(200%) brightness(200%);
+}

@@ -1,5 +1,6 @@
 const loadText = document.querySelector('.loading-text')
 const bg = document.querySelector('.bg')
+const replayButton = document.getElementById('replay')
 
 let load = 0
 
@@ -21,3 +22,11 @@ function blurring() {
 const scale = (num, in_min, in_max, out_min, out_max) => {
   return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
 }
+
+replayButton.addEventListener('click', () => {
+  load = 0
+  loadText.innerText = '0%'
+  loadText.style.opacity = 1
+  bg.style.filter = 'blur(30px)'
+  int = setInterval(blurring, 30)
+})
