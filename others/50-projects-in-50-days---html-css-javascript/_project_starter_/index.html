@@ -3,264 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoNova - Revolutionary Blockchain Solutions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #4a90e2;
-            --secondary-color: #50e3c2;
-            --background-color: #f9f9f9;
-            --text-color: #333333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            overflow: hidden;
-        }
-        
-        header {
-            background: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
-        
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        header a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        header .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        
-        header nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        header nav ul li {
-            margin-left: 20px;
-        }
-        
-        header nav ul li a:hover {
-            color: var(--primary-color);
-        }
-        
-        #showcase {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: #ffffff;
-            padding: 150px 0 100px;
-            text-align: center;
-        }
-        
-        #showcase h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        #showcase p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #ffffff;
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: var(--secondary-color);
-            color: #ffffff;
-        }
-        
-        #features {
-            padding: 80px 0;
-        }
-        
-        #features .container {
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        #features .feature {
-            flex-basis: 30%;
-            text-align: center;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        #features .feature:hover {
-            transform: translateY(-10px);
-        }
-        
-        #features .feature i {
-            font-size: 50px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        #features .feature h3 {
-            margin-bottom: 15px;
-        }
-        
-        #about {
-            padding: 80px 0;
-            background: var(--background-color);
-        }
-        
-        #about .container {
-            text-align: center;
-        }
-        
-        #about h2 {
-            margin-bottom: 30px;
-        }
-        
-        #about p {
-            margin-bottom: 20px;
-        }
-        
-        #contact {
-            padding: 80px 0;
-            background: var(--primary-color);
-            color: #ffffff;
-        }
-        
-        #contact .container {
-            text-align: center;
-        }
-        
-        #contact h2 {
-            margin-bottom: 30px;
-        }
-        
-        #contact form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        #contact input, #contact textarea {
-            width: 100%;
-            max-width: 500px;
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-        }
-        
-        #contact button {
-            background: #ffffff;
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-        }
-        
-        #contact button:hover {
-            background: var(--secondary-color);
-            color: #ffffff;
-        }
-        
-        footer {
-            background: #333333;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px 0;
-        }
-    </style>
+    <title>TradingAI - Advanced Crypto Trading Advisor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
-    <header>
+    <div id="particles-js"></div>
+
+    <header class="header">
         <div class="container">
             <div class="logo">
-                CryptoNova
+                <i class="fas fa-robot"></i>
+                <span>TradingAI</span>
             </div>
-            <nav class="animated-nav">
-                <ul>
-                    <li><a href="#home">Home</a></li>
+            <nav class="nav-menu">
+                <button id="mobile-menu-btn" aria-label="Menu" class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#" class="btn btn-secondary">Login</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="showcase">
+    <!-- <div id="price-ticker" class="ticker-wrap">
+        <div class="ticker"></div>
+    </div> -->
+
+    <section id="hero">
         <div class="container">
-            <h1>Revolutionary Blockchain Solutions</h1>
-            <p>Experience the future of finance with CryptoNova's cutting-edge technology</p>
-            <a href="#" class="btn">Get Started</a>
+            <div class="hero-content animate-on-scroll">
+                <h1><span id="typed-text"></span></h1>
+                <p>Get professional-grade trading signals and portfolio management powered by advanced machine learning algorithms.</p>
+                <div class="cta-buttons">
+                    <a href="#pricing" class="btn pulse">Start Free Trial</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-stats animate-on-scroll">
+                <div class="stat-item">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h3><span id="accuracy">89.0</span>%</h3>
+                        <p>Prediction Accuracy</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <div>
+                        <h3>$<span id="volume">1.2</span>B</h3>
+                        <p>Trading Volume</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <h3><span id="traders">10000</span>+</h3>
+                        <p>Active Traders</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="features">
         <div class="container">
-            <div class="feature">
-                <i class="fas fa-lock"></i>
-                <h3>Secure Transactions</h3>
-                <p>State-of-the-art encryption for all your transactions</p>
+            <div class="section-header animate-on-scroll">
+                <h2>Advanced Trading Features</h2>
+                <p>Powered by sophisticated AI algorithms</p>
             </div>
-            <div class="feature">
-                <i class="fas fa-bolt"></i>
-                <h3>Lightning Fast</h3>
-                <p>Instant transactions across the globe</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-users"></i>
-                <h3>Community Driven</h3>
-                <p>Join our vibrant community of crypto enthusiasts</p>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI Analysis</h3>
+                    <p>Real-time market analysis using advanced machine learning models</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <i class="fas fa-bell"></i>
+                    <h3>Smart Alerts</h3>
+                    <p>Instant notifications for market opportunities and risks</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Portfolio Analytics</h3>
+                    <p>Detailed insights and recommendations for your portfolio</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="about">
+    <section id="pricing">
         <div class="container">
-            <h2>About Us</h2>
-            <p>CryptoNova is at the forefront of blockchain technology, providing secure, fast, and community-driven solutions for the future of finance.</p>
+            <div class="section-header animate-on-scroll">
+                <h2>Choose Your Plan</h2>
+                <p>Start with a 14-day free trial</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Free</h3>
+                    <div class="price-amount">$0</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check"></i> Basic Market Analysis</li>
+                        <li><i class="fas fa-check"></i> Daily Trading Signals</li>
+                        <li><i class="fas fa-check"></i> Basic Portfolio Tracking</li>
+                        <li><i class="fas fa-check"></i> Email Support</li>
+                    </ul>
+                    <a href="#" class="btn">Get Started</a>
+                </div>
+                <div class="price-card">
+                    <h3>Pro</h3>
+                    <div class="price-amount">$99</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check"></i> Advanced AI Analysis</li>
+                        <li><i class="fas fa-check"></i> Real-time Trading Signals</li>
+                        <li><i class="fas fa-check"></i> Portfolio Management</li>
+                        <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
+                        <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                    </ul>
+                    <a href="#" class="btn">Start Free Trial</a>
+                </div>
+                <div class="price-card">
+                    <h3>Oracle</h3>
+                    <div class="price-amount">$299</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check"></i> Custom AI Models</li>
+                        <li><i class="fas fa-check"></i> Institutional Grade Data</li>
+                        <li><i class="fas fa-check"></i> API Access</li>
+                        <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
+                        <li><i class="fas fa-check"></i> Custom Integration</li>
+                        <li><i class="fas fa-check"></i> Private Community</li>
+                    </ul>
+                    <a href="#" class="btn">Contact Sales</a>
+                </div>
+            </div>
         </div>
     </section>
 
+    <section id="cta">
+        <div class="container">
+            <h2>Start Trading Smarter Today</h2>
+            <p>Join thousands of successful traders using AI-powered insights</p>
+            <form id="trial-form" class="animate-on-scroll">
+                <div class="form-group">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn">Start Free Trial</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>TradingAI - Advanced cryptocurrency trading powered by artificial intelligence</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
