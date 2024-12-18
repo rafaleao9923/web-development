@@ -82,26 +82,6 @@ function updateTradingStats() {
     });
 }
 
-// Smooth value animation
-function animateValue(element, start, end, duration, prefix = '', suffix = '') {
-    const range = end - start;
-    const startTime = performance.now();
-
-    function update(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-
-        const value = start + (range * progress);
-        element.textContent = `${prefix}${value.toFixed(1)}${suffix}`;
-
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        }
-    }
-
-    requestAnimationFrame(update);
-}
-
 // Generate random statistics within range
 function generateRandomStat(min, max) {
     return Math.random() * (max - min) + min;
@@ -217,3 +197,44 @@ function showNotification(message, type) {
     }, 3000);
 }
 
+function animateCounter(element, start, end, duration, prefix = '', suffix = '') {
+    const startTime = performance.now();
+    const range = end - start;
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const value = start + (range * progress);
+        element.textContent = `${prefix}${Math.round(value)}${suffix}`;
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
+function initCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const prefix = counter.getAttribute('data-prefix') || '';
+        const suffix = counter.getAttribute('data-suffix') || '';
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(counter, 0, target, 2000, prefix, suffix);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(counter);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initCounters);

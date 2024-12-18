@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </head>
+
 <body>
     <div id="particles-js"></div>
 
@@ -44,7 +46,8 @@
         <div class="container">
             <div class="hero-content animate-on-scroll">
                 <h1><span id="typed-text"></span></h1>
-                <p>Get professional-grade trading signals and portfolio management powered by advanced machine learning algorithms.</p>
+                <p>Get professional-grade trading signals and portfolio management powered by advanced machine learning
+                    algorithms.</p>
                 <div class="cta-buttons">
                     <a href="#pricing" class="btn pulse">Start Free Trial</a>
                     <a href="#features" class="btn btn-secondary">Learn More</a>
@@ -54,26 +57,27 @@
                 <div class="stat-item">
                     <i class="fas fa-chart-line"></i>
                     <div>
-                        <h3><span id="accuracy">89.0</span>%</h3>
+                        <div class="counter" data-target="89" data-suffix="%">0</div>
                         <p>Prediction Accuracy</p>
                     </div>
                 </div>
                 <div class="stat-item">
                     <i class="fas fa-dollar-sign"></i>
                     <div>
-                        <h3>$<span id="volume">1.2</span>B</h3>
+                        <div class="counter" data-target="14" data-prefix="$" data-suffix="B">0</div>
                         <p>Trading Volume</p>
                     </div>
                 </div>
                 <div class="stat-item">
                     <i class="fas fa-users"></i>
                     <div>
-                        <h3><span id="traders">10000</span>+</h3>
+                        <div class="counter" data-target="10000" data-suffix="+">0</div>
                         <p>Active Traders</p>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 
     <section id="features">
@@ -152,6 +156,27 @@
     <section id="cta">
         <div class="container">
             <h2>Start Trading Smarter Today</h2>
+            
+            <div class="social-counters">
+                <div class="social-counter-item">
+                    <i class="fab fa-twitter"></i>
+                    <div class="counter" data-target="12000">0</div>
+                    <span class="social-counter-label">Twitter Followers</span>
+                </div>
+                
+                <div class="social-counter-item">
+                    <i class="fab fa-youtube"></i>
+                    <div class="counter" data-target="5000">0</div>
+                    <span class="social-counter-label">YouTube Subscribers</span>
+                </div>
+                
+                <div class="social-counter-item">
+                    <i class="fab fa-facebook"></i>
+                    <div class="counter" data-target="7500">0</div>
+                    <span class="social-counter-label">Facebook Fans</span>
+                </div>
+            </div>
+    
             <p>Join thousands of successful traders using AI-powered insights</p>
             <form id="trial-form" class="animate-on-scroll">
                 <div class="form-group">
@@ -189,4 +214,5 @@
         </div>
     </footer>
 </body>
+
 </html>
