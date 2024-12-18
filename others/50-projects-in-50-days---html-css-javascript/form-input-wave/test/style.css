@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1513297887119-d46091b24bfa?auto=format&fit=crop&q=80');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px 50px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.container a {
+  text-decoration: none;
+  color: #00d4ff;
+  transition: all 0.3s ease;
+}
+
+.container a:hover {
+  text-shadow: 0 0 10px #00d4ff;
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background: linear-gradient(45deg, #00d4ff, #00b4d8);
+  padding: 15px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+  transform: scale(0.98) translateY(0);
+}
+
+.text {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 300px;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: #00d4ff;
+  box-shadow: 0 2px 10px rgba(0, 212, 255, 0.2);
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+  color: #00d4ff;
+  transform: translateY(-45px);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(30);
+    opacity: 0;
+  }
+}

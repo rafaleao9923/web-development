@@ -1,0 +1,52 @@
+{
+    "cards": [
+        {
+            "header_img": "./assets/headers/header-1.jpg",
+            "title": "Lorem ipsum dolor sit amet",
+            "excerpt": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis",
+            "profile_img": "./assets/avatars/avatar-1.jpg",
+            "author_name": "John Doe",
+            "date": "Oct 08, 2020"
+        },
+        {
+            "header_img": "./assets/headers/header-2.jpg",
+            "title": "Consectetur adipisicing elit",
+            "excerpt": "Consectetur adipisicing elit. Quasi quibusdam nemo aperiam voluptatem",
+            "profile_img": "./assets/avatars/avatar-2.jpg",
+            "author_name": "Jane Smith",
+            "date": "Oct 13, 2020"
+        },
+        {
+            "header_img": "./assets/headers/header-3.jpg",
+            "title": "Sed do eiusmod tempor",
+            "excerpt": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            "profile_img": "./assets/avatars/avatar-3.jpg",
+            "author_name": "Mike Johnson",
+            "date": "Oct 20, 2020"
+        },
+        {
+            "header_img": "./assets/headers/header-4.jpg",
+            "title": "Ut enim ad minim veniam",
+            "excerpt": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+            "profile_img": "./assets/avatars/avatar-4.jpg",
+            "author_name": "Sarah Wilson",
+            "date": "Nov 05, 2020"
+        },
+        {
+            "header_img": "./assets/headers/header-5.jpg",
+            "title": "Duis aute irure dolor",
+            "excerpt": "Duis aute irure dolor in reprehenderit in voluptate velit esse",
+            "profile_img": "./assets/avatars/avatar-5.jpg",
+            "author_name": "David Brown",
+            "date": "Nov 12, 2020"
+        },
+        {
+            "header_img": "./assets/headers/header-6.jpg",
+            "title": "Excepteur sint occaecat",
+            "excerpt": "Excepteur sint occaecat cupidatat non proident, sunt in culpa",
+            "profile_img": "./assets/avatars/avatar-6.jpg",
+            "author_name": "Emma Davis",
+            "date": "Nov 18, 2020"
+        }
+    ]
+}

@@ -7,11 +7,10 @@ const search = document.getElementById('search')
 async function getUser(username) {
     try {
         const { data } = await axios(APIURL + username)
-
         createUserCard(data)
         getRepos(username)
-    } catch(err) {
-        if(err.response.status == 404) {
+    } catch (err) {
+        if (err.response.status == 404) {
             createErrorCard('No profile with this username')
         }
     }
@@ -20,36 +19,56 @@ async function getUser(username) {
 async function getRepos(username) {
     try {
         const { data } = await axios(APIURL + username + '/repos?sort=created')
-
         addReposToCard(data)
-    } catch(err) {
+    } catch (err) {
         createErrorCard('Problem fetching repos')
     }
+}
+
+function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' }
+    return new Date(dateString).toLocaleDateString(undefined, options)
 }
 
 function createUserCard(user) {
     const userID = user.name || user.login
     const userBio = user.bio ? `<p>${user.bio}</p>` : ''
+    const joinDate = formatDate(user.created_at)
+    
     const cardHTML = `
     <div class="card">
-    <div>
-      <img src="${user.avatar_url}" alt="${user.name}" class="avatar">
+        <div>
+            <img src="${user.avatar_url}" alt="${user.name}" class="avatar">
+        </div>
+        <div class="user-info">
+            <h2>${userID}</h2>
+            <div class="join-date">
+                <i class="fas fa-calendar-alt"></i>
+                Joined ${joinDate}
+            </div>
+            ${userBio}
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <div class="value">${user.followers}</div>
+                    <div class="label">Followers</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-user-friends"></i>
+                    <div class="value">${user.following}</div>
+                    <div class="label">Following</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-code-branch"></i>
+                    <div class="value">${user.public_repos}</div>
+                    <div class="label">Repos</div>
+                </div>
+            </div>
+            <div class="repos" id="repos"></div>
+        </div>
     </div>
-    <div class="user-info">
-      <h2>${userID}</h2>
-      ${userBio}
-      <ul>
-        <li>${user.followers} <strong>Followers</strong></li>
-        <li>${user.following} <strong>Following</strong></li>
-        <li>${user.public_repos} <strong>Repos</strong></li>
-      </ul>
-
-      <div id="repos"></div>
-    </div>
-  </div>
     `
     main.innerHTML = cardHTML
-    
 }
 
 function createErrorCard(msg) {
@@ -58,13 +77,12 @@ function createErrorCard(msg) {
             <h1>${msg}</h1>
         </div>
     `
-
     main.innerHTML = cardHTML
 }
 
 function addReposToCard(repos) {
     const reposEl = document.getElementById('repos')
-
+    
     repos
         .slice(0, 5)
         .forEach(repo => {
@@ -80,13 +98,9 @@ function addReposToCard(repos) {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-
     const user = search.value
-
     if(user) {
         getUser(user)
-
         search.value = ''
     }
 })
-

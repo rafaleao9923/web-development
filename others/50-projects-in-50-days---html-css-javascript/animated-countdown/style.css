@@ -86,11 +86,11 @@ h4 {
 
 .nums span.in {
   transform: translate(-50%, -50%) rotate(0deg);
-  animation: goIn 0.5s ease-in-out;
+  animation: goIn 0.75s ease-in-out;
 }
 
 .nums span.out {
-  animation: goOut 0.5s ease-in-out;
+  animation: goOut 0.75s ease-in-out;
 }
 
 @keyframes goIn {

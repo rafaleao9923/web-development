@@ -5,18 +5,20 @@ const panel = document.querySelector('#panel')
 let selectedRating = 'Satisfied'
 
 ratingsContainer.addEventListener('click', (e) => {
-    if(e.target.parentNode.classList.contains('rating')) {
+    if (e.target.parentNode.classList.contains('rating')) {
         removeActive()
         e.target.parentNode.classList.add('active')
         selectedRating = e.target.nextElementSibling.innerHTML
     }
-    if(e.target.classList.contains('rating')) {
+    if (e.target.classList.contains('rating')) {
         removeActive()
         e.target.classList.add('active')
         selectedRating = e.target.nextElementSibling.innerHTML
     }
 
 })
+
+console.log(selectedRating)
 
 sendBtn.addEventListener('click', (e) => {
     panel.innerHTML = `
@@ -29,7 +31,7 @@ sendBtn.addEventListener('click', (e) => {
 })
 
 function removeActive() {
-    for(let i = 0; i < ratings.length; i++) {
+    for (let i = 0; i < ratings.length; i++) {
         ratings[i].classList.remove('active')
     }
 }
