@@ -13,8 +13,7 @@ body {
 }
 
 .background {
-  background: url('https://images.unsplash.com/photo-1556745757-8d76bdb6984b')
-    no-repeat center center/cover;
+  background: url('https://images.unsplash.com/photo-1556745757-8d76bdb6984b') no-repeat center center/cover;
   position: absolute;
   top: -20px;
   bottom: -20px;
