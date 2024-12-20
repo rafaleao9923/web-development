@@ -20,18 +20,18 @@ h1 {
 }
 
 .box {
-  background-color: steelblue;
-  color: #fff;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 400px;
-  height: 200px;
+  height: 300px;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
   transform: translateX(400%);
   transition: transform 0.4s ease;
+  overflow: hidden;
 }
 
 .box:nth-of-type(even) {
@@ -42,6 +42,34 @@ h1 {
   transform: translateX(0);
 }
 
-.box h2 {
-  font-size: 45px;
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.box:hover img {
+  transform: scale(1.1);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid steelblue;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
