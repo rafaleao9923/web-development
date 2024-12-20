@@ -70,7 +70,7 @@ body {
   transform-origin: top left;
 }
 
-.container.show-nav + nav li {
+.container.show-nav+nav li {
   transform: translateX(0);
   transition-delay: 0.3s;
 }
@@ -100,17 +100,17 @@ nav ul li i {
   margin-right: 10px;
 }
 
-nav ul li + li {
+nav ul li+li {
   margin-left: 15px;
   transform: translateX(-150%);
 }
 
-nav ul li + li + li {
+nav ul li+li+li {
   margin-left: 30px;
   transform: translateX(-200%);
 }
 
-nav a{
+nav a {
   color: #fafafa;
   text-decoration: none;
   transition: all 0.5s;

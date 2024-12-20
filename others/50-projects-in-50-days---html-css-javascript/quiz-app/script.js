@@ -30,7 +30,7 @@ const quizData = [
         c: "1994",
         d: "none of the above",
         correct: "b",
-    },
+    }
 ];
 
 const quiz = document.getElementById('quiz')
@@ -44,14 +44,14 @@ const submitBtn = document.getElementById('submit')
 
 let currentQuiz = 0
 let score = 0
+let userAnswers = []
+let quizHistory = []
 
 loadQuiz()
 
 function loadQuiz() {
     deselectAnswers()
-
     const currentQuizData = quizData[currentQuiz]
-
     questionEl.innerText = currentQuizData.question
     a_text.innerText = currentQuizData.a
     b_text.innerText = currentQuizData.b
@@ -65,34 +65,82 @@ function deselectAnswers() {
 
 function getSelected() {
     let answer
-
     answerEls.forEach(answerEl => {
         if(answerEl.checked) {
             answer = answerEl.id
         }
     })
-
     return answer
+}
+
+function saveQuizState() {
+    const answers = document.querySelectorAll('label')
+    const state = {
+        question: questionEl.innerText,
+        answers: Array.from(answers).map(label => ({
+            text: label.innerText,
+            option: label.getAttribute('data-option')
+        })),
+        userAnswer: getSelected(),
+        correctAnswer: quizData[currentQuiz].correct
+    }
+    quizHistory.push(state)
 }
 
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
-    
     if(answer) {
+        saveQuizState()
+        userAnswers.push(answer)
         if(answer === quizData[currentQuiz].correct) {
             score++
         }
-
         currentQuiz++
 
         if(currentQuiz < quizData.length) {
             loadQuiz()
         } else {
             quiz.innerHTML = `
-                <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-
-                <button onclick="location.reload()">Reload</button>
+                <div class="result-text">
+                    <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+                </div>
+                <div class="button-container">
+                    <button id="view-result">View Results</button>
+                    <button id="reload">Reload</button>
+                </div>
             `
+            document.getElementById('view-result').addEventListener('click', showResults)
+            document.getElementById('reload').addEventListener('click', () => location.reload())
         }
     }
 })
+
+function showResults() {
+    let resultsHTML = '<div class="quiz-header">'
+    quizHistory.forEach((state, index) => {
+        resultsHTML += `
+            <div class="question-review">
+                <h2>${state.question}</h2>
+                <div class="answer-grid">
+                    ${state.answers.map(answer => `
+                        <div class="answer-option ${
+                            answer.option === state.correctAnswer && answer.option === state.userAnswer ? 'correct' :
+                            answer.option === state.correctAnswer ? 'correct-answer' :
+                            answer.option === state.userAnswer ? 'wrong' : ''
+                        }">
+                            ${answer.text}
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `
+    })
+    resultsHTML += `
+        </div>
+        <div class="button-container">
+            <button id="reload">Reload Quiz</button>
+        </div>
+    `
+    quiz.innerHTML = resultsHTML
+    document.getElementById('reload').addEventListener('click', () => location.reload())
+}

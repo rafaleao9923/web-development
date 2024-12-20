@@ -1,70 +1,187 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: #b8c6db;
-  background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 100%);
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
+    background-color: #b8c6db;
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 100%);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
 }
 
 .quiz-container {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
-  width: 600px;
-  overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+    width: 600px;
+    max-width: 95vw;
+    overflow: hidden;
 }
 
 .quiz-header {
-  padding: 4rem;
+    padding: 4rem;
 }
 
 h2 {
-  padding: 1rem;
-  text-align: center;
-  margin: 0;
+    padding: 1rem;
+    text-align: center;
+    margin: 0;
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
 ul li {
-  font-size: 1.2rem;
-  margin: 1rem 0;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    position: relative;
 }
 
 ul li label {
-  cursor: pointer;
+    cursor: pointer;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    display: block;
+    transition: all 0.3s ease;
 }
 
-button {
-  background-color: #8e44ad;
-  color: #fff;
-  border: none;
-  display: block;
-  width: 100%;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-family: inherit;
-  padding: 1.3rem;
+ul li label:hover {
+    border-color: #8e44ad;
 }
 
-button:hover {
-  background-color: #732d91;
+.answer {
+    display: none;
 }
 
-button:focus {
-  outline: none;
-  background-color: #5e3370;
+.answer:checked + label {
+    border-color: #8e44ad;
+    background-color: #f0f0f0;
+}
+
+label.correct {
+    border-color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.1);
+    position: relative;
+}
+
+label.wrong {
+    border-color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1);
+    position: relative;
+}
+
+label.current-answer {
+    border-width: 3px;
+}
+
+.correct-answer-text {
+    color: #2ecc71;
+    font-size: 0.9rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.button-container button {
+    background-color: #8e44ad;
+    color: #fff;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: 1.3rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #732d91;
+}
+
+#view-result {
+    background-color: #2ecc71;
+}
+
+#view-result:hover {
+    background-color: #27ae60;
+}
+
+#reload {
+    background-color: #e67e22;
+}
+
+#reload:hover {
+    background-color: #d35400;
+}
+
+.result-text {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.5rem;
+}
+
+.question-review {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.answer-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.answer-option {
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.answer-option.correct {
+    border-color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+}
+
+.answer-option.correct-answer {
+    border-color: #2ecc71;
+    border-style: dashed;
+    color: #2ecc71;
+}
+
+.answer-option.wrong {
+    border-color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+}
+
+.question-review h2 {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
