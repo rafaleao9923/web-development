@@ -1,1 +1,0 @@
--r becoming_a_django_entdev/requirements.txt
