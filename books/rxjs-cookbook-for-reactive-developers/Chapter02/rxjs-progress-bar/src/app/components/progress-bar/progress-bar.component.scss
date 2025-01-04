@@ -1,0 +1,35 @@
+.progress-bar-container {
+  height: 20px;
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  margin: 40px;
+  position: relative;
+
+  p {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+  }
+}
+
+.mat-mdc-progress-bar {
+  --mdc-linear-progress-active-indicator-color: transparent;
+  --mdc-linear-progress-track-color: transparent;
+  height: 40px;
+}
+
+.mdc-linear-progress__buffer {
+  background-color: rgba(103, 58, 183, 0.25);
+  height: 40px;
+}
+
+::ng-deep .mdc-linear-progress__bar {
+  background: #7322ff;
+  border-radius: 25px;
+  margin: 0 !important;
+  height: 20px !important;
+}

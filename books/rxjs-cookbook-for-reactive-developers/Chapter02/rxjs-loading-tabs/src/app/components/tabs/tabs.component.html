@@ -1,0 +1,11 @@
+<mat-tab-group [selectedIndex]="(activeTab$ | async)?.index" (selectedTabChange)="selectTab($event)">
+  <ng-container *ngFor="let tab of tabs">
+    <mat-tab [label]="tab.label"></mat-tab>
+  </ng-container>
+</mat-tab-group>
+<div class="tab-content">
+  @if (loadingTab$ | async) {
+    <mat-spinner></mat-spinner>
+  }
+  <ng-container *ngComponentOutlet="activeTabContent$ | async"></ng-container>
+</div>

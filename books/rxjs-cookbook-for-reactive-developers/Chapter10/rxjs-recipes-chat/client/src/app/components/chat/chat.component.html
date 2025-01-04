@@ -1,0 +1,69 @@
+<header class="chat-header">
+  <img
+    class="avatar"
+    [src]="
+      name === 'Red Panda'
+        ? '/assets/images/red-panda.png'
+        : '/assets/images/racoon.png'
+    "
+    alt="Avatar"
+  />
+  <div class="chat-header-container">
+    <h2>{{ name }}</h2>
+    @if (isOnline) {
+    <p>
+      Online
+      <span class="online"></span>
+    </p>
+    } @else {
+    <p>
+      Online
+      <span class="offline"></span>
+    </p>
+    }
+  </div>
+</header>
+<div class="chat-container">
+  @for (chatMessage of messages; let idx = $index; track chatMessage.id) {
+  <p
+    class="message"
+    [ngClass]="{
+            'sent': isSender(chatMessage.clientId),
+            'received': !isSender(chatMessage.clientId),
+        }"
+  >
+    @if (chatMessage.isVoice) {
+      <audio controls controlsList="nodownload" [src]="chatMessage.message" class="audio-message" [ngClass]="{
+        'sent': isSender(chatMessage.clientId),
+        'received': !isSender(chatMessage.clientId),
+    }"></audio>
+    } @else {
+      {{ chatMessage.message }}
+    }
+    @if (shouldShowTimestamp(idx)) {
+    <span class="time">{{ chatMessage.timestamp | date : "shortTime" }}</span>
+    }
+  </p>
+  } @if(isTyping) {
+  <div class="typing">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  }
+</div>
+<div class="new-message-container">
+  <input
+    class="new-message-input"
+    placeholder="Message..."
+    type="text"
+    [(ngModel)]="message"
+    (ngModelChange)="handleTypeMessage($event)"
+  />
+  <button mat-fab class="new-message-btn" (click)="sendMessage()">
+    <mat-icon>send</mat-icon>
+  </button>
+  <button mat-fab class="new-voice-message-btn" (click)="sendVoiceMessage()">
+    <mat-icon>mic</mat-icon>
+  </button>
+</div>

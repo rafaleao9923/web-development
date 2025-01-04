@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package order;
+
+service FoodOrderService {
+    rpc CreateOrder (stream OrderRequest) returns (stream OrderResponse);
+}
+
+enum OrderStatus {
+    PENDING = 0;
+    ACCEPTED = 1;
+    PREPARING = 2;
+    COURIER_ON_THE_WAY = 3;
+    DELIVERED = 4;
+    CANCELLED = 5;
+}
+
+message OrderRequest {
+    string item = 1;
+    int32 quantity = 2;
+    optional Location location = 5;
+}
+
+message Location {
+    double lat = 1;
+    double lng = 2;
+}
+
+message OrderResponse {
+    string id = 1;
+    string item = 2;
+    int32 quantity = 3;
+    string status = 4;
+    optional Location location = 5;
+}
